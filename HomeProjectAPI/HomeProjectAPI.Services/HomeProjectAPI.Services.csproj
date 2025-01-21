@@ -12,6 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\Services.Sql\Services.Sql.csproj" />
         <ProjectReference Include="..\HomeProjectAPI.API.Common\HomeProjectAPI.API.Common.csproj"/>
         <ProjectReference Include="..\HomeProjectAPI.Services.Contracts\HomeProjectAPI.Services.Contracts.csproj"/>
         <ProjectReference Include="..\HomeProjectAPI.Services.Model\HomeProjectAPI.Services.Model.csproj"/>

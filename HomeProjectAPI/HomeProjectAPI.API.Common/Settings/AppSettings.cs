@@ -6,6 +6,8 @@ namespace HomeProjectAPI.API.Common.Settings
     {
         [Required] public ApiSettings API { get; set; }
         [Required] public Swagger Swagger { get; set; }
+        
+        [Required] public ConnectionStrings ConnectionStrings { get; set; }
     }
 
     public class ApiSettings
@@ -38,5 +40,10 @@ namespace HomeProjectAPI.API.Common.Settings
     public class Swagger
     {
         [Required] public bool Enabled { get; set; }
+    }
+
+    public class ConnectionStrings
+    {
+        public string EvdbConnection { get; set; }
     }
 }

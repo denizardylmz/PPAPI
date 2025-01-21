@@ -24,6 +24,7 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0"/>
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
         <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0"/>
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0"/>
@@ -36,6 +37,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\Services.Sql\Services.Sql.csproj" />
         <ProjectReference Include="..\HomeProjectAPI.API.Common\HomeProjectAPI.API.Common.csproj"/>
         <ProjectReference Include="..\HomeProjectAPI.API.DataContracts\HomeProjectAPI.API.DataContracts.csproj"/>
         <ProjectReference Include="..\HomeProjectAPI.Services\HomeProjectAPI.Services.csproj"/>

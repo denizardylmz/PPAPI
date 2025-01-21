@@ -16,6 +16,7 @@ namespace HomeProjectAPI.IoC.Configuration.DI
             if (services != null)
             {
                 services.AddTransient<IUserService, UserService>();
+                
             }
         }
 

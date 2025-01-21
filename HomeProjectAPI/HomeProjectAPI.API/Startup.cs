@@ -24,6 +24,8 @@ using HomeProjectAPI.API.Common.Middlewares;
 using HomeProjectAPI.API.Common.Settings;
 using HomeProjectAPI.API.Swagger;
 using HomeProjectAPI.IoC.Configuration.DI;
+using Microsoft.EntityFrameworkCore;
+using Services.Sql.Models;
 
 #pragma warning disable CS1591
 namespace HomeProjectAPI.API
@@ -182,6 +184,9 @@ namespace HomeProjectAPI.API
 
                     //BUSINESS SETTINGS
                     services.ConfigureBusinessServices(Configuration);
+
+                    services.AddDbContext<EvdbContext>(option =>
+                        option.UseNpgsql((_appSettings.ConnectionStrings.EvdbConnection)));
 
                     //REPOSITORIES
                     services.ConfigureRepositories(Configuration);

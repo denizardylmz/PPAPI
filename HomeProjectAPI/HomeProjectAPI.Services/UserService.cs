@@ -5,6 +5,7 @@ using HomeProjectAPI.Services.Model;
 using Microsoft.Extensions.Options;
 using System;
 using System.Threading.Tasks;
+using Services.Sql.Models;
 
 namespace HomeProjectAPI.Services
 {
@@ -12,11 +13,14 @@ namespace HomeProjectAPI.Services
     {
         private AppSettings _settings;
         private readonly IMapper _mapper;
+        private readonly EvdbContext _context;
 
-        public UserService(IOptions<AppSettings> settings, IMapper mapper)
+
+        public UserService(IOptions<AppSettings> settings, IMapper mapper, EvdbContext context)
         {
             _settings = settings?.Value;
             _mapper = mapper;
+            _context = context;
         }
 
         public async Task<User> CreateAsync(User user)
@@ -36,9 +40,14 @@ namespace HomeProjectAPI.Services
 
         public async Task<User> GetAsync(string id)
         {
+            var not = new Notlar() { Id = 1, Note = "asdasd", Title = "123123", CreateDate = DateTime.Now};
+            int result = 0;
+            _context.Notlars.Add(not);
+            result = await _context.SaveChangesAsync();
+
             return new User
             {
-                Id = id,
+                Id = result.ToString(),
                 Firstname = "Firstname",
                 Lastname = "Lastname",
                 Address = new Address
