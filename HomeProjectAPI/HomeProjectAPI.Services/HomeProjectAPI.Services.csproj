@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="12.0.1"/>
+        <PackageReference Include="FluentValidation" Version="11.8.1"/>
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.1"/>
+        <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\HomeProjectAPI.API.Common\HomeProjectAPI.API.Common.csproj"/>
+        <ProjectReference Include="..\HomeProjectAPI.Services.Contracts\HomeProjectAPI.Services.Contracts.csproj"/>
+        <ProjectReference Include="..\HomeProjectAPI.Services.Model\HomeProjectAPI.Services.Model.csproj"/>
+        <ProjectReference Include="..\HomeProjectAPI.Tools\HomeProjectAPI.Tools.csproj"/>
+    </ItemGroup>
+
+</Project>
