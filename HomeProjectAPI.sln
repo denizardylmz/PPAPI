@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeProjectAPI.Services.Mod
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeProjectAPI.Services.Tests", "HomeProjectAPI\HomeProjectAPI.Services.Tests\HomeProjectAPI.Services.Tests.csproj", "{7EBC6D43-11A6-4ACB-8EE7-CF2825CBA8BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Sql", "Services.Sql\Services.Sql.csproj", "{D3EC52D5-E070-4D43-8C07-ED2A63D24CAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,10 @@ Global
 		{7EBC6D43-11A6-4ACB-8EE7-CF2825CBA8BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EBC6D43-11A6-4ACB-8EE7-CF2825CBA8BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EBC6D43-11A6-4ACB-8EE7-CF2825CBA8BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3EC52D5-E070-4D43-8C07-ED2A63D24CAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3EC52D5-E070-4D43-8C07-ED2A63D24CAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3EC52D5-E070-4D43-8C07-ED2A63D24CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3EC52D5-E070-4D43-8C07-ED2A63D24CAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -101,6 +107,7 @@ Global
 		{D2E14123-E178-4DB3-A0B7-E8E67473A914} = {06DAE591-894F-4BB7-9807-3FA8768F2808}
 		{5697E9F5-7AC5-4941-AA3D-045D6770B873} = {06DAE591-894F-4BB7-9807-3FA8768F2808}
 		{7EBC6D43-11A6-4ACB-8EE7-CF2825CBA8BF} = {E06E00DD-EFBF-45B3-97FC-36550D87208F}
+		{D3EC52D5-E070-4D43-8C07-ED2A63D24CAB} = {06DAE591-894F-4BB7-9807-3FA8768F2808}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D88CACA8-D1F7-4512-ABB9-F5A9458CBEAE}
