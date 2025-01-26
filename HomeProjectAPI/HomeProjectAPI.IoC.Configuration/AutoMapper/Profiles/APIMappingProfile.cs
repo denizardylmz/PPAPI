@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using DC = HomeProjectAPI.API.DataContracts;
 using S = HomeProjectAPI.Services.Model;
 using Sql = Services.Sql;
@@ -44,9 +45,11 @@ namespace HomeProjectAPI.IoC.Configuration.AutoMapper.Profiles
             >().ReverseMap();
             
             #region Notes
-            CreateMap<Sql.Models.NoteTag, S.NoteTag>();
-            CreateMap<Sql.Models.Tag, S.Tag>();
-            CreateMap<Sql.Models.Note, S.Note>();
+            CreateMap<Sql.Models.NoteTag, S.NoteTag>().ReverseMap();
+            CreateMap<Sql.Models.Tag, S.Tag>().ReverseMap();
+            CreateMap<Sql.Models.Note, S.Note>()
+                    .ForMember(x => x.Tags, y => y.MapFrom(x => x.NoteTags.Select(x => x.Tag).ToList()));
+            CreateMap<S.Note, Sql.Models.Note>();
             #endregion
         }
     }

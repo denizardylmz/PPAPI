@@ -5,7 +5,7 @@ using HomeProjectAPI.Services.Model;
 using Microsoft.Extensions.Options;
 using System;
 using System.Threading.Tasks;
-using Services.Sql.Models;
+using  SM = Services.Sql.Models;
 
 namespace HomeProjectAPI.Services
 {
@@ -13,10 +13,10 @@ namespace HomeProjectAPI.Services
     {
         private AppSettings _settings;
         private readonly IMapper _mapper;
-        private readonly EvdbContext _context;
+        private readonly SM.EvdbContext _context;
 
 
-        public UserService(IOptions<AppSettings> settings, IMapper mapper, EvdbContext context)
+        public UserService(IOptions<AppSettings> settings, IMapper mapper, SM.EvdbContext context)
         {
             _settings = settings?.Value;
             _mapper = mapper;

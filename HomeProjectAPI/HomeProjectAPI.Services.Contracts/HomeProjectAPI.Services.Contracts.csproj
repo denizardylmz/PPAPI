@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\Services.Sql\Services.Sql.csproj" />
         <ProjectReference Include="..\HomeProjectAPI.Services.Model\HomeProjectAPI.Services.Model.csproj"/>
     </ItemGroup>
 

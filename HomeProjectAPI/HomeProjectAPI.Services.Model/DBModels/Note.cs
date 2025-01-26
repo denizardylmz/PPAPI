@@ -13,4 +13,6 @@ public class Note
     public DateTime UpdatedAt { get; set; }
     
     public List<NoteTag> NoteTags { get; set; }
+    public List<Tag> Tags { get; set; }
+    public User User { get; set; }  
 }
