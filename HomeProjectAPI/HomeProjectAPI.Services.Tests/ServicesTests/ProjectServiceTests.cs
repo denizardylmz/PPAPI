@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using HomeProjectAPI.Services.Contracts;
+using HomeProjectAPI.Services.Model;
 
 namespace HomeProjectAPI.Services.Tests
 {
@@ -18,7 +19,7 @@ namespace HomeProjectAPI.Services.Tests
         {
             //Simple test
             var upsertResult = await _service.CreateAsync(
-                new Services.Model.User
+                new User()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Firstname = "Firstname",

@@ -4,7 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using HomeProjectAPI.Services;
 using HomeProjectAPI.Services.Contracts;
+using HomeProjectAPI.Services.Contracts.Services;
 using HomeProjectAPI.Services.Model;
+using HomeProjectAPI.Services.Services;
 using HomeProjectAPI.Services.Validators;
 
 namespace HomeProjectAPI.IoC.Configuration.DI
@@ -16,7 +18,7 @@ namespace HomeProjectAPI.IoC.Configuration.DI
             if (services != null)
             {
                 services.AddTransient<IUserService, UserService>();
-                
+                services.AddScoped<INoteService, NoteService>();
             }
         }
 

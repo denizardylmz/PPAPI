@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DC = HomeProjectAPI.API.DataContracts;
 using S = HomeProjectAPI.Services.Model;
+using Sql = Services.Sql;
 
 namespace HomeProjectAPI.IoC.Configuration.AutoMapper.Profiles
 {
@@ -41,6 +42,12 @@ namespace HomeProjectAPI.IoC.Configuration.AutoMapper.Profiles
                 DC.Responses.Response<DC.Requests.Request<string>, int>,
                 S.Responses.Response<S.Requests.Request<string>, int>
             >().ReverseMap();
+            
+            #region Notes
+            CreateMap<Sql.Models.NoteTag, S.NoteTag>();
+            CreateMap<Sql.Models.Tag, S.Tag>();
+            CreateMap<Sql.Models.Note, S.Note>();
+            #endregion
         }
     }
 }

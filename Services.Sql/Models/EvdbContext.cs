@@ -14,8 +14,7 @@ public partial class EvdbContext : DbContext
         : base(options)
     {
     }
-
-    public virtual DbSet<Notlar> Notlars { get; set; }
+    public virtual DbSet<Note> Notes { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -23,23 +22,35 @@ public partial class EvdbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Notlar>(entity =>
+
+
+        modelBuilder.Entity<Note>(entity =>
+            {
+                entity.ToTable("notes");
+                entity.HasKey(x => x.Id);
+
+                entity.Property(x => x.CreatedAt).HasDefaultValue(DateTime.UtcNow);
+                entity.Property(x => x.UpdatedAt).HasDefaultValue(DateTime.UtcNow);
+                
+                entity.HasMany(x => x.NoteTags).WithOne().HasForeignKey(x => x.NoteId).HasPrincipalKey(x => x.Id);
+            }
+        );
+
+        modelBuilder.Entity<Tag>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("notlar_pkey");
-
-            entity.ToTable("notlar");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.CreateDate)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("create_date");
-            entity.Property(e => e.Note).HasColumnName("note");
-            entity.Property(e => e.Title)
-                .HasMaxLength(100)
-                .HasColumnName("title");
+            entity.ToTable("tags");
+            entity.HasKey(x => x.Id);
         });
 
+        modelBuilder.Entity<NoteTag>(entity =>
+        {
+            entity.ToTable("notetags");
+            entity.HasKey(x => new { x.NoteId, x.TagId });
+
+            entity.HasOne<Tag>(x => x.Tag).WithOne()
+                .HasForeignKey<NoteTag>(x => x.TagId)
+                .HasPrincipalKey<Tag>(x => x.Id);
+        });
         OnModelCreatingPartial(modelBuilder);
     }
 
