@@ -25,8 +25,6 @@ public partial class EvdbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
-
         modelBuilder.Entity<Note>(entity =>
             {
                 entity.ToTable("notes");

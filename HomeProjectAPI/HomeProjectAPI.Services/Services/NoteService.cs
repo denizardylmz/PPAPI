@@ -31,9 +31,7 @@ public class NoteService :INoteService
     {
         var user = note.User;
         note.User = null;
-        note.NoteTags.ForEach(x =>
-            x.Tag = null
-        );
+        if(note.NoteTags.Count != 0) note.NoteTags.ForEach(x => x.Tag = null );
         
         var mappedNote = _mapper.Map<SqlM.Note>(note);
         await _context.Notes.AddAsync(mappedNote);
@@ -67,9 +65,9 @@ public class NoteService :INoteService
     public async Task<SM.Note> GetNoteById(int id)
     {
         var note = await _context.Notes.Where(x => x.Id == id)
-                                        .Include(x => x.User)
-                                        .Include(x => x.NoteTags)
-                                        .ThenInclude(x => x.Tag)
+                                         .Include(x => x.User)
+                                         .Include(x => x.NoteTags)
+                                         .ThenInclude(x => x.Tag)
                                         .FirstOrDefaultAsync();
         return note != null ? _mapper.Map<SM.Note>(note) : null;
     } 

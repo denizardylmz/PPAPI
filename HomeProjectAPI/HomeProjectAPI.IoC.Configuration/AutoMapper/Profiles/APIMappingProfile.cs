@@ -50,6 +50,7 @@ namespace HomeProjectAPI.IoC.Configuration.AutoMapper.Profiles
             CreateMap<Sql.Models.Note, S.Note>()
                     .ForMember(x => x.Tags, y => y.MapFrom(x => x.NoteTags.Select(x => x.Tag).ToList()));
             CreateMap<S.Note, Sql.Models.Note>();
+            CreateMap<Sql.Models.User, S.User>().ReverseMap();
             #endregion
         }
     }

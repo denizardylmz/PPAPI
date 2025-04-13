@@ -146,7 +146,8 @@ namespace HomeProjectAPI.API
                         services.AddSwaggerGen(options =>
                         {
                             options.OperationFilter<SwaggerDefaultValues>();
-
+                            options.CustomSchemaIds(type => type.FullName);
+                            
                             //1-Get all the assemblies of the project to add the related XML Comments
                             Assembly currentAssembly = Assembly.GetExecutingAssembly();
                             AssemblyName[] referencedAssemblies = currentAssembly.GetReferencedAssemblies();

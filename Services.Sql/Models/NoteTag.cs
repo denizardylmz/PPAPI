@@ -2,12 +2,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Services.Sql.Models;
 
-[Table("NoteTags")]
 public class NoteTag
 {
-    [Column("NOTEID")]
+    [Column("noteid")]
     public int NoteId { get; set; }
-    [Column("TAGID")]
+    [Column("tagid")]
     public int TagId { get; set; }
     
     public Tag Tag { get; set; }

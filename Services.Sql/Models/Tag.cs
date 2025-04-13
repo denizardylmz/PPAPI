@@ -2,12 +2,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Services.Sql.Models;
 
-[Table("Tags")]
 public class Tag
 {
-    [Column("ID")]
+    [Column("id")]
     public int Id { get; set; }
-    [Column("NAME")]
+    [Column("name")]
     public string Name { get; set; }
     
 }

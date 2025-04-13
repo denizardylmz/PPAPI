@@ -35,7 +35,7 @@ namespace HomeProjectAPI.API.Controllers.V1
 
         #region GET
 
-        /// <summary>
+        
         /// Returns a user entity according to the provided Id.
         /// </summary>
         /// <remarks>
@@ -53,9 +53,9 @@ namespace HomeProjectAPI.API.Controllers.V1
         public async Task<User> Get(string id)
         {
             _logger.LogDebug($"UserControllers::Get::{id}");
-
+        
             var data = await _service.GetAsync(id);
-
+        
             if (data != null)
                 return _mapper.Map<User>(data);
             else

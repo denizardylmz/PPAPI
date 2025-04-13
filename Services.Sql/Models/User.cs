@@ -1,19 +1,18 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Services.Sql.Models;
-[Table("USERS")]
 public class User
 {
-    [Column("ID")]
+    [Column("id")]
     public int Id { get; set; }
-    [Column("USERNAME")]
+    [Column("username")]
     public string Username { get; set; }
-    [Column("PASSWORD")]
+    [Column("password")]
     public string Password { get; set; }
-    [Column("NAME")]
+    [Column("name")]
     public string Name { get; set; }
-    [Column("SURNAME")]
+    [Column("surname")]
     public string Surname { get; set; }
-    [Column("MAIL")]
+    [Column("mail")]
     public string Mail { get; set; }
 }

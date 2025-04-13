@@ -2,20 +2,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Services.Sql.Models;
 
-[Table("Notes")]
 public class Note
 {
-    [Column("ID")]
+    [Column("id")]
     public int Id { get; set; }
-    [Column("USERID")]
+    [Column("userid")]
     public int UserId { get; set; }
-    [Column("TITLE")]
+    [Column("title")]
     public string Title { get; set; }
-    [Column("CONTENT")]
+    [Column("content")]
     public string Content { get; set; } 
-    [Column("CreatedAt")]
+    [Column("createdat")]
     public DateTime CreatedAt { get; set; } 
-    [Column("UpdatedAt")]
+    [Column("updatedat")]
     public DateTime UpdatedAt { get; set; }
     
     public List<NoteTag>? NoteTags { get; set; }
